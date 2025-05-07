@@ -19,6 +19,6 @@ class AdminAuth
         if (Auth::user()) {
             return $next($request);
         }
-        return redirect("/");
+        return redirect("/admin");
     }
 }
