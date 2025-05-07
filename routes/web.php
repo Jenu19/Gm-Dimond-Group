@@ -2,10 +2,13 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\ProfileSystemController;
+use App\Http\Controllers\web\HomeController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/admin', function () {
     return view('admin.auth.login');
 })->name('login');
 Route::post('check_login', [AdminController::class, 'checklogin'])->name('check_login');
