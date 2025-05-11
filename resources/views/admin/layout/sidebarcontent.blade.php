@@ -14,9 +14,15 @@
 </style>
 <ul class="navbar-nav">
     <li class="nav-item mb-2 fs-7">
-        <a class="nav-link rounded d-flex align-items-center {{ request()->routeIs('admin.profile_system*') ? 'active' : '' }}"
-            href="{{ route('admin.profile_system.index') }}" aria-expanded="false">
-            <i class="fa-solid fa-truck-fast"></i><span class="nav-text">Profile System</span>
+        <a class="nav-link rounded d-flex align-items-center {{ request()->routeIs('admin.blog*') ? 'active' : '' }}"
+            href="{{ route('admin.blog.index') }}" aria-expanded="false">
+            <i class="fa-solid fa-blog"></i><span class="nav-text">Blog</span>
+        </a>
+    </li>
+    <li class="nav-item mb-2 fs-7">
+        <a class="nav-link rounded d-flex align-items-center {{ request()->routeIs('admin.pioneers*') ? 'active' : '' }}"
+            href="{{ route('admin.pioneers.index') }}" aria-expanded="false">
+            <i class="fa-solid fa-image"></i><span class="nav-text">Pioneers/Preferred</span>
         </a>
     </li>
     <li class="nav-item mb-2 fs-7">

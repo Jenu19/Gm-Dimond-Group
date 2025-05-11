@@ -4,7 +4,7 @@
         <div class="d-flex justify-content-between align-items-center">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item fs-5 fw-500">
-                    <a href="{{ route('admin.profile_system.index') }}">Profile System</a>
+                    <a href="{{ route('admin.blog.index') }}">Blogs</a>
                 </li>
             </ol>
             <a href="{{ request()->url() . '/add' }}" class="btn btn-primary">Add New</a>
@@ -25,34 +25,43 @@
                                 <thead>
                                     <tr>
                                         <th>Sr no</th>
+                                        <th>Image</th>
                                         <th>Title</th>
+                                        <th>Description</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($profilesystemdata as $key => $value)
+                                    @foreach ($blogdata as $key => $value)
                                         <tr>
                                             <td>{{ ++$key }}</td>
+                                            <td><img src="{{ helper::image_path($value->image) }}"
+                                                    class="img-fluid hw-50 rounded" alt="">
+                                            </td>
                                             <td>{{ $value->title }}</td>
+                                            <td>{{ Str::limit($value->description, 80) }}</td>
                                             <td>
                                                 @if ($value->is_available == 1)
                                                     <button class="btn btn-sm btn-success rounded-4" tooltip="Active"
-                                                        onclick="StatusUpdate('{{ $value->id }}','2','{{ route('admin.profile_system.status') }}')">
-                                                        <i class="fa-sharp fa-solid fa-check"></i></button>
+                                                        onclick="StatusUpdate('{{ $value->id }}','2','{{ route('admin.blog.status') }}')">
+                                                        <i class="fa-sharp fa-solid fa-check"></i>
+                                                    </button>
                                                 @else
                                                     <button class="btn btn-sm btn-danger rounded-4" tooltip="Inactive"
-                                                        onclick="StatusUpdate('{{ $value->id }}','1','{{ route('admin.profile_system.status') }}')">
-                                                        <i class="fa-sharp fa-solid fa-xmark"></i></button>
+                                                        onclick="StatusUpdate('{{ $value->id }}','1','{{ route('admin.blog.status') }}')">
+                                                        <i class="fa-sharp fa-solid fa-xmark"></i>
+                                                    </button>
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.profile_system.edit', $value->id) }}"
-                                                    tooltip="Edit" class="btn btn-sm btn-info rounded-4">
+                                                <a href="{{ route('admin.blog.edit', $value->id) }}" tooltip="Edit"
+                                                    class="btn btn-sm btn-info rounded-4">
                                                     <i class="fa-solid fa-pen-to-square text-white"></i></a>
                                                 <button class="btn btn-sm btn-danger rounded-4" tooltip="Delete"
-                                                    onclick="Delete('{{ $value->id }}','{{ route('admin.profile_system.delete') }}')">
-                                                    <i class="fa-solid fa-trash"></i></button>
+                                                    onclick="Delete('{{ $value->id }}','{{ route('admin.blog.delete') }}')">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
                                             </td>
                                         </tr>
                                     @endforeach

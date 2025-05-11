@@ -426,3 +426,13 @@ a {
 }
 
 /* ============== login page end ============== */
+
+.object {
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+.gallery-img {
+    height: 270px;
+    width: 100%;
+}
