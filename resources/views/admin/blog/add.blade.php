@@ -4,7 +4,7 @@
         <div class="d-flex justify-content-between align-items-center">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item fs-5 fw-500">
-                    <a href="{{ route('admin.profile_system.index') }}">Profile System</a>
+                    <a href="{{ route('admin.blog.index') }}">Blog</a>
                 </li>
                 <li class="breadcrumb-item fs-5 fw-500">
                     <span class="text-dark">Add New</span>
@@ -17,26 +17,31 @@
             <div class="col-12">
                 <div class="card border-0">
                     <div class="card-body box-shadow">
-                        <form action="{{ route('admin.profile_system.store') }}" method="post">
+                        <form action="{{ route('admin.blog.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-4">
-                                <div class="col-md-6">
+                                <div class="form-group col-md-6">
                                     <label for="title">Title
                                         <span class="text-danger">*</span>
                                     </label>
                                     <input type="text" class="form-control" name="title" id="title"
                                         placeholder="Title" required>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="system_width">Width
+                                <div class="form-group col-md-6">
+                                    <label for="image">Image
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="text" class="form-control" name="system_width" id="system_width"
-                                        placeholder="Width" required>
+                                    <input type="file" class="form-control" name="image" id="image" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="description">Description
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea class="form-control" name="description" id="description" rows="5" required></textarea>
                                 </div>
                             </div>
                             <div class="text-end">
-                                <a href="{{ route('admin.profile_system.index') }}" class="btn btn-danger">Cancel</a>
+                                <a href="{{ route('admin.blog.index') }}" class="btn btn-danger">Cancel</a>
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </form>

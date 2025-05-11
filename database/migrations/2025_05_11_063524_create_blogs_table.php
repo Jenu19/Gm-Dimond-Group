@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('profile_systems', function (Blueprint $table) {
+        Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->text('title')->nullable();
+            $table->text('slug')->nullable();
+            $table->text('description')->nullable();
+            $table->text('image')->nullable();
+            $table->integer('is_available')->default('1')->comment('1=Yes 2=No');
             $table->timestamps();
         });
     }
@@ -23,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profile_systems');
+        Schema::dropIfExists('blogs');
     }
 };

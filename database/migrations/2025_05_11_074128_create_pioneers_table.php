@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('profile_systems', function (Blueprint $table) {
-            $table->integer('is_available')->default('1')->comment('1=Yes 2=No')->after('title');
+        Schema::create('pioneers', function (Blueprint $table) {
+            $table->id();
+            $table->text('image')->nullable();
+            $table->integer('is_available')->default('1')->comment('1=Yes 2=No');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('profile_systems', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('pioneers');
     }
 };
