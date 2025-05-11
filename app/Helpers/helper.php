@@ -19,6 +19,11 @@ class helper
                 $path = url(env('ASSETPATHURL') . 'admin/images/pioneers/' . $image);
             }
         }
+        if (Str::contains($image, 'event')) {
+            if (file_exists(env('ASSETPATHURL') . 'admin/images/event/' . $image)) {
+                $path = url(env('ASSETPATHURL') . 'admin/images/event/' . $image);
+            }
+        }
         return $path;
     }
 }
