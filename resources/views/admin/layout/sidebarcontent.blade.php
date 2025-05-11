@@ -26,6 +26,18 @@
         </a>
     </li>
     <li class="nav-item mb-2 fs-7">
+        <a class="nav-link rounded d-flex align-items-center {{ request()->routeIs('admin.event*') ? 'active' : '' }}"
+            href="{{ route('admin.event.index') }}" aria-expanded="false">
+            <i class="fa-solid fa-image"></i><span class="nav-text">Media/Events</span>
+        </a>
+    </li>
+    <li class="nav-item mb-2 fs-7">
+        <a class="nav-link rounded d-flex align-items-center {{ request()->routeIs('admin.job_opening*') ? 'active' : '' }}"
+            href="{{ route('admin.job_opening.index') }}" aria-expanded="false">
+            <i class="fa-solid fa-tasks"></i><span class="nav-text">Job Opening</span>
+        </a>
+    </li>
+    <li class="nav-item mb-2 fs-7">
         <a class="nav-link rounded d-flex align-items-center" href="{{ route('admin.clearcache') }}"
             aria-expanded="false">
             <i class="fa fa-refresh"></i><span class="nav-text">Clear Cache</span>
