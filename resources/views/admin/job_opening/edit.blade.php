@@ -31,7 +31,7 @@
                                     <label for="title">Description
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <textarea class="form-control" name="description" id="description" rows="5" required>{{ $job_opening->description }}</textarea>
+                                    <textarea class="form-control" name="description" placeholder="Description" id="description" rows="5" required>{{ $job_opening->description }}</textarea>
                                 </div>
                             </div>
                             <div class="text-end">
