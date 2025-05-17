@@ -1,8 +1,62 @@
-$(window).on('load', function () {
+// Setting JS Start
+$(document).ready(function () {
+    $('#settingmenuContent').find('.hidechild').addClass('d-none');
+    $('#settingmenuContent').find('.hidechild:first').removeClass('d-none');
+});
+
+
+$('.basicinfo').on('click', function () {
+
     "use strict";
-    $("#preload").fadeOut(500);
-    $(".pre-loader").fadeOut(500);
-})
+
+    $('#settingmenuContent').find('.hidechild').addClass('d-none');
+    $('#' + $(this).attr('data_attribute')).removeClass('d-none');
+
+    $('.list-options').find('.active').removeClass('active');
+
+    $(this).addClass('active');
+
+});
+
+function show_feature_icon(x) {
+
+    "use strict";
+
+    $(x).next().html($(x).val())
+
+}
+
+function remove_features(id) {
+
+    "use strict";
+
+    $('.remove' + id).remove();
+
+    if ($('.extra_social_links .row').length == 0) {
+        $(".soaciallink_required").prop('required', false);
+    }
+
+}
+
+var id = 1;
+
+function add_social_links(icon, link) {
+    "use strict";
+    var html =
+        '<div class="col-12 remove' +
+        id +
+        '"><div class="row"><div class="col-md-6 form-group"><div class="input-group"><input type="text" class="form-control soaciallink_required" onkeyup="show_feature_icon(this)" name="social_icon[]" placeholder="' +
+        icon +
+        '" required><p class="input-group-text"></p></div></div><div class="col-md-6 d-flex gap-2 align-items-center form-group"><input type="text" class="form-control soaciallink_required" name="social_link[]" placeholder="' +
+        link +
+        '" required><button class="btn btn-danger hov btn-sm rounded-5" type="button" onclick="remove_features(' +
+        id +
+        ')"><i class="fa fa-trash"></i></button></div></div></div>';
+    $(".extra_social_links").append(html);
+    $(".soaciallink_required").prop("required", true);
+    id++;
+}
+//Setting JS End
 
 $(function () {
     "use strict";
@@ -25,17 +79,6 @@ $(function () {
         }
     });
 
-});
-
-$(window).scroll(function () {
-    "use strict";
-    if ($(this).scrollTop() > 180) {
-        $('#add_button').addClass('sticky-button');
-        $('#add_button').find('button').addClass('w-100');
-    } else {
-        $('#add_button').removeClass('sticky-button');
-        $('#add_button').find('button').removeClass('w-100');
-    }
 });
 
 $("document").ready(function () {
