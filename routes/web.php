@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\PioneersController;
 use App\Http\Controllers\admin\EventsController;
 use App\Http\Controllers\admin\JobOpeningController;
+use App\Http\Controllers\admin\SettingsController;
 use App\Http\Controllers\web\HomeController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -58,6 +59,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'AdminAuth'
         Route::post('/update-{id}', [JobOpeningController::class, 'update'])->name('update');
         Route::post('/delete', [JobOpeningController::class, 'delete'])->name('delete');
         Route::post('/status', [JobOpeningController::class, 'status'])->name('status');
+    });
+
+    // Settings
+    Route::prefix('setting')->name('setting.')->group(function () {
+        Route::get('/', [SettingsController::class, 'index'])->name('index');
+        Route::post('/savecontact', [SettingsController::class, 'savecontact'])->name('savecontact');
+        Route::post('/sociallinks', [SettingsController::class, 'sociallinks'])->name('sociallinks');
+        Route::post('/deletesociallinks', [SettingsController::class, 'deletesociallinks'])->name('deletesociallinks');
+        Route::post('/other', [SettingsController::class, 'other'])->name('other');
     });
     // clear-cache
     Route::get('clear-cache', function () {

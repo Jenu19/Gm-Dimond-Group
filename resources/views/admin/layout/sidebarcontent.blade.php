@@ -38,6 +38,12 @@
         </a>
     </li>
     <li class="nav-item mb-2 fs-7">
+        <a class="nav-link rounded d-flex align-items-center {{ request()->routeIs('admin.setting*') ? 'active' : '' }}"
+            href="{{ route('admin.setting.index') }}" aria-expanded="false">
+            <i class="fa-solid fa-gear"></i><span class="nav-text">Settings</span>
+        </a>
+    </li>
+    <li class="nav-item mb-2 fs-7">
         <a class="nav-link rounded d-flex align-items-center" href="{{ route('admin.clearcache') }}"
             aria-expanded="false">
             <i class="fa fa-refresh"></i><span class="nav-text">Clear Cache</span>
