@@ -29,6 +29,16 @@ class helper
                 $path = url(env('ASSETPATHURL') . 'admin/images/other/' . $image);
             }
         }
+        if (Str::contains($image, 'project')) {
+            if (file_exists(env('ASSETPATHURL') . 'admin/images/project/' . $image)) {
+                $path = url(env('ASSETPATHURL') . 'admin/images/project/' . $image);
+            }
+        }
+        if (Str::contains($image, 'about')) {
+            if (file_exists(env('ASSETPATHURL') . 'admin/images/about/' . $image)) {
+                $path = url(env('ASSETPATHURL') . 'admin/images/about/' . $image);
+            }
+        }
         return $path;
     }
 }

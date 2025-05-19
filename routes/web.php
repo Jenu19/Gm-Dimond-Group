@@ -5,6 +5,8 @@ use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\PioneersController;
 use App\Http\Controllers\admin\EventsController;
 use App\Http\Controllers\admin\JobOpeningController;
+use App\Http\Controllers\admin\ProjectController;
+use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\SettingsController;
 use App\Http\Controllers\web\HomeController;
 use Illuminate\Support\Facades\Artisan;
@@ -59,6 +61,24 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'AdminAuth'
         Route::post('/update-{id}', [JobOpeningController::class, 'update'])->name('update');
         Route::post('/delete', [JobOpeningController::class, 'delete'])->name('delete');
         Route::post('/status', [JobOpeningController::class, 'status'])->name('status');
+    });
+
+    // Project
+    Route::prefix('project')->name('project.')->group(function () {
+        Route::get('/', [ProjectController::class, 'index'])->name('index');
+        Route::get('/add', [ProjectController::class, 'add'])->name('add');
+        Route::post('/store', [ProjectController::class, 'store'])->name('store');
+        Route::get('/edit-{id}', [ProjectController::class, 'edit'])->name('edit');
+        Route::post('/update-{id}', [ProjectController::class, 'update'])->name('update');
+        Route::post('/delete', [ProjectController::class, 'delete'])->name('delete');
+        Route::post('/status', [ProjectController::class, 'status'])->name('status');
+    });
+
+    // About Us
+    Route::prefix('about_us')->name('about.')->group(function () {
+        // Route::get('/', [AboutController::class, 'index'])->name('index');
+        Route::get('/', [AboutController::class, 'add'])->name('add');
+        Route::post('/store', [AboutController::class, 'store'])->name('store');
     });
 
     // Settings

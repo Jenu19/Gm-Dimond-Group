@@ -14,6 +14,12 @@
 </style>
 <ul class="navbar-nav">
     <li class="nav-item mb-2 fs-7">
+        <a class="nav-link rounded d-flex align-items-center {{ request()->routeIs('admin.project*') ? 'active' : '' }}"
+            href="{{ route('admin.project.index') }}" aria-expanded="false">
+            <i class="fa-solid fa-project-diagram"></i><span class="nav-text">Project</span>
+        </a>
+    </li>
+    <li class="nav-item mb-2 fs-7">
         <a class="nav-link rounded d-flex align-items-center {{ request()->routeIs('admin.blog*') ? 'active' : '' }}"
             href="{{ route('admin.blog.index') }}" aria-expanded="false">
             <i class="fa-solid fa-blog"></i><span class="nav-text">Blog</span>
@@ -35,6 +41,12 @@
         <a class="nav-link rounded d-flex align-items-center {{ request()->routeIs('admin.job_opening*') ? 'active' : '' }}"
             href="{{ route('admin.job_opening.index') }}" aria-expanded="false">
             <i class="fa-solid fa-tasks"></i><span class="nav-text">Job Opening</span>
+        </a>
+    </li>
+    <li class="nav-item mb-2 fs-7">
+        <a class="nav-link rounded d-flex align-items-center {{ request()->routeIs('admin.about*') ? 'active' : '' }}"
+            href="{{ route('admin.about.add') }}" aria-expanded="false">
+            <i class="fa-solid fa-info"></i><span class="nav-text">About Us</span>
         </a>
     </li>
     <li class="nav-item mb-2 fs-7">
