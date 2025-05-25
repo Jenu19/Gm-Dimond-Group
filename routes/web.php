@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/project', [HomeController::class, 'project'])->name('project');
+Route::get('/careers', [HomeController::class, 'careers'])->name('careers');
+Route::get('/event', [HomeController::class, 'event'])->name('event');
 
 Route::get('/admin', function () {
     return view('admin.auth.login');

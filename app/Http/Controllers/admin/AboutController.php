@@ -27,7 +27,7 @@ class AboutController extends Controller
         $about->description = $request->description;
 
         if ($request->image != null) {
-            if (file_exists(env('ASSETPATHURL') . 'admin/images/about/' . $about->image)) {
+            if ($about->image && file_exists(env('ASSETPATHURL') . 'admin/images/about/' . $about->image)) {
                 unlink(env('ASSETPATHURL') . 'admin/images/about/' . $about->image);
             }
             $filename = 'about-' . uniqid() . '.' . $request->image->Extension();
@@ -36,6 +36,6 @@ class AboutController extends Controller
         }
 
         $about->save();
-        return redirect(route('admin.about.add'))->with('success', 'About Us Added Successfully!');
+        return redirect(route('admin.about.add'))->with('success', 'About Us Updated Successfully!');
     }
 }
