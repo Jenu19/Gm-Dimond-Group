@@ -1,0 +1,271 @@
+/* XL */
+@media(max-width:1399px) {
+    .container {
+        max-width: 1140px;
+    }
+
+
+    header nav {
+        display: none;
+    }
+
+    .header-btn {
+        padding: 10px 30px;
+        font-size: 16px;
+    }
+
+    .header-btn svg {
+        width: 18px;
+    }
+
+    header .menu {
+        display: flex;
+    }
+
+    .about-banner-title {
+        margin-left: 135px;
+    }
+
+    .Explore-About-US-title h3 {
+        font-size: 20;
+    }
+
+    .Explore-About-US-title h2 {
+        font-size: 28px;
+        line-height: normal;
+    }
+
+    .Explore-About-US-title p {
+        font-size: 16px;
+    }
+
+    .Explore-About-US-image {
+        height: 310px;
+    }
+
+
+    .Explore-image {
+        height: 418px;
+    }
+
+    .row {
+        align-items: center;
+    }
+
+    .Mission-content {
+        margin-left: 30px;
+    }
+
+    .Chairman-image {
+        margin-left: 30px;
+    }
+
+    .Chairman-image2 {
+        margin-right: 30px;
+    }
+
+    .Chairman-content2 {
+        margin-left: 30px;
+    }
+}
+
+/* LG */
+@media(max-width:1199px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .Explore-About-US h3,
+    .values h3,
+    .Explore h3,
+    .Vision h3,
+    .Chairman h3,
+    .Workplace h3 {
+        font-size: 18px;
+    }
+
+    .Explore-About-US h2,
+    .values h2,
+    .Explore h2,
+    .Vision h2,
+    .Chairman h2,
+    .Workplace h2 {
+        font-size: 20px;
+        line-height: normal;
+    }
+
+    .Explore-About-US p,
+    .values p,
+    .Explore p,
+    .Vision p,
+    .Chairman p,
+    .Workplace p {
+        font-size: 14px;
+    }
+
+    .Explore-About-US-image {
+        height: 260px;
+    }
+
+
+    .Explore-image {
+        height: 390px;
+    }
+
+    .contact-details {
+        margin-top: 30px;
+    }
+}
+
+/* MD */
+@media(max-width:991px) {
+    .container {
+        max-width: 720px;
+    }
+
+    .w-md-1 {
+        width: 100%;
+    }
+
+    .w-md-2 {
+        width: 50%;
+    }
+
+    .Explore-About-US-image {
+        margin: 30px 0;
+    }
+
+    .values p {
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+
+    .values-content svg {
+        margin-top: 40px;
+    }
+
+    .Explore-image {
+        margin: 0 0 30px 0;
+    }
+
+    .Vision-content,
+    .Mission-image {
+        margin: 30px 0;
+    }
+
+    .Vision-image {
+        margin: 30px 0;
+    }
+
+    .vision-r {
+        display: flex;
+    }
+
+    .vision-r2 {
+        display: none;
+    }
+
+    .Mission-content {
+        margin: 30px 0;
+    }
+
+    .Explore-content {
+        margin-left: 0;
+    }
+
+    .Chairman-image,
+    .Chairman-image2 {
+        margin: 30px 0;
+    }
+
+    .Chairman-content2 {
+        margin-left: 0;
+    }
+
+    .Chairman-r {
+        display: flex;
+    }
+
+    .Chairman2-r {
+        display: none;
+    }
+
+    .Workplace-r {
+        display: flex;
+    }
+
+    .Workplace-r2 {
+        display: none;
+    }
+
+
+    .Explore-About-US,
+    .Vision,
+    .Chairman {
+        padding: 80px 0;
+    }
+
+    .values,
+    .Explore,
+    .Workplace {
+        padding-bottom: 80px;
+    }
+
+    .links {
+        margin-top: 30px;
+    }
+
+    footer p,
+    .copyright p,
+    footer ul li a,
+    .company-contact {
+        font-size: 14px;
+    }
+
+    footer h4,
+    .values-content h4 {
+        font-size: 16px;
+    }
+
+    .values-title h2{
+        margin-bottom: 20px;
+    }
+}
+
+/* SM */
+@media(max-width:767px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+/* XS */
+@media(max-width:575px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .w-xs-1 {
+        width: 100%;
+    }
+
+    .values-content {
+        margin-right: 0;
+    }
+    .values-title h3::after,
+    .values-title h3::before {
+        display: none;
+    }
+
+    .about-banner-title {
+        margin-left: 20px;
+    }
+
+    .Explore-image img {
+        left: 0;
+    }
+
+    .copyright-border {
+        margin-top: 50px;
+    }
+}

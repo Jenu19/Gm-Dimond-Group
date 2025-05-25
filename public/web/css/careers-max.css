@@ -1,0 +1,108 @@
+/* XL */
+@media(max-width:1399px){
+    .container{
+        max-width: 1140px;
+    }
+    header nav {
+        display: none;
+    }
+
+    .header-btn{
+        padding: 10px 30px;
+        font-size: 16px;
+    }
+
+    .header-btn svg{
+        width: 18px;
+    }
+
+    header .menu {
+        display: flex;
+    }
+
+}
+
+/* LG */
+@media(max-width:1199px){
+    .container{
+        max-width: 960px;
+    }
+    .job-title h3::before, .job-opening-title h3::before{
+        left: 62%;
+    }
+    .job-title h3::after, .job-opening-title h3::after{
+        left: 29%;
+    }
+    .contact-details {
+        margin-top: 30px;
+    }
+}
+
+/* MD */
+@media(max-width:991px){
+    .container{
+        max-width: 720px;
+    }
+     .job-title h3::before, .job-opening-title h3::before{
+        left: 67%;
+    }
+    .job-title h3::after, .job-opening-title h3::after{
+        left: 20%;
+    }
+    .about-banner-title{
+        margin-left: 100px;
+    }
+    .job {
+        margin: 80px 0;
+    }
+}
+
+/* SM */
+@media(max-width:767px){
+    .container{
+        max-width: 540px;  
+    }  
+     .job-title h3::before, .job-opening-title h3::before{
+        left: 72%;
+    }
+    .job-title h3::after, .job-opening-title h3::after{
+        left: 10%;
+    }
+    .about-banner-title{
+        margin-left: 20px;
+    }
+    .links {
+        margin-top: 30px;
+    }
+
+    footer p,
+    .copyright p,
+    footer ul li a,
+    .company-contact {
+        font-size: 14px;
+    }
+
+    footer h4 {
+        font-size: 16px;
+    }
+}
+
+/* XS */
+@media(max-width:575px){
+    .container{
+        max-width: 100%;
+    }
+     .job-title h3::before, .job-opening-title h3::before{
+        display: none;
+    }
+    .job-title h3::after, .job-opening-title h3::after{
+        display: none;
+    }
+    .about-banner-title{
+        margin-left: 15px;
+    }
+    .copyright-border {
+        margin-top: 50px;
+    }
+  
+}
