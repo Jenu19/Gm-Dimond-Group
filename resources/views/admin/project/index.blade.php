@@ -25,11 +25,11 @@
                                 <thead>
                                     <tr>
                                         <th>Sr no</th>
+                                        <th>Image</th>
                                         <th>Title</th>
                                         <th>Sub Title</th>
                                         <th>Location</th>
                                         <th>Description</th>
-                                        <th>Image</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -38,13 +38,13 @@
                                     @foreach ($projectsdata as $key => $value)
                                         <tr>
                                             <td>{{ ++$key }}</td>
+                                            <td><img src="{{ helper::image_path($value->image) }}"
+                                                    class="img-fluid hw-50 rounded" alt="">
+                                            </td>
                                             <td>{{ $value->title }}</td>
                                             <td>{{ $value->sub_title }}</td>
                                             <td>{{ $value->location }}</td>
                                             <td>{{ $value->description }}</td>
-                                            <td><img src="{{ helper::image_path($value->image) }}"
-                                                    class="img-fluid hw-50 rounded" alt="">
-                                            </td>
                                             <td>
                                                 @if ($value->is_available == 1)
                                                     <button class="btn btn-sm btn-success rounded-4" tooltip="Active"

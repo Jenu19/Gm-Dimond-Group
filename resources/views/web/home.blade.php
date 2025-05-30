@@ -50,33 +50,37 @@
             </div>
         </section>
         <!-- projects  -->
-        <section class="projects">
-            <div class="container">
-                <div class="project-title text-center">
-                    <h3>Explore The Projects</h3>
-                    <h2>Residential & Industrial Projects </h2>
-                </div>
-                <div class="row">
-                    <div class="w-3 w-lg-2 w-sm-1">
-                        <div class="project-img">
-                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/p1.png') }}" alt="project" title="project"
-                                width="100%" height="250px">
-                            <div class="project-locaion">
-                                <a href="javascript:void(0)" class="d-flex align-center"><svg width="12" height="14"
-                                        viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M6.00001 0C9.12768 0 11.6667 2.539 11.6667 5.66667C11.6667 7.29533 10.854 8.97167 9.83368 10.3793C8.40901 12.3453 6.62734 13.7787 6.62734 13.7787V13.779C6.44953 13.922 6.22819 14 6.00001 14C5.77183 14 5.55049 13.922 5.37268 13.779V13.7787C5.37268 13.7787 3.59101 12.3453 2.16634 10.3793C1.14601 8.97167 0.333344 7.29533 0.333344 5.66667C0.333344 2.539 2.87234 0 6.00001 0ZM6.00001 3.33333C7.28768 3.33333 8.33334 4.379 8.33334 5.66667C8.33334 6.95433 7.28768 8 6.00001 8C4.71234 8 3.66668 6.95433 3.66668 5.66667C3.66668 4.379 4.71234 3.33333 6.00001 3.33333Z"
-                                            fill="white" />
-                                    </svg>Navsari
-                                </a>
-                            </div>
-                            <div class="d-flex justify-between align-center  project-details">
-                                <h3>Diamond Valley</h3>
-                                <p>Residential</p>
-                            </div>
-                        </div>
+        @if (count($projectdata) > 0)
+            <section class="projects">
+                <div class="container">
+                    <div class="project-title text-center">
+                        <h3>Explore The Projects</h3>
+                        <h2>Residential & Industrial Projects </h2>
                     </div>
-                    <div class="w-3 w-lg-2 w-sm-1">
+                    <div class="row">
+                        @foreach ($projectdata as $project)
+                            <div class="w-3 w-lg-2 w-sm-1">
+                                <div class="project-img">
+                                    <img src="{{ helper::image_path($project->image) }}" alt="project" title="project"
+                                        width="100%" height="250px">
+                                    <div class="project-locaion">
+                                        <a href="javascript:void(0)" class="d-flex align-center">
+                                            <svg width="12" height="14" viewBox="0 0 12 14" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M6.00001 0C9.12768 0 11.6667 2.539 11.6667 5.66667C11.6667 7.29533 10.854 8.97167 9.83368 10.3793C8.40901 12.3453 6.62734 13.7787 6.62734 13.7787V13.779C6.44953 13.922 6.22819 14 6.00001 14C5.77183 14 5.55049 13.922 5.37268 13.779V13.7787C5.37268 13.7787 3.59101 12.3453 2.16634 10.3793C1.14601 8.97167 0.333344 7.29533 0.333344 5.66667C0.333344 2.539 2.87234 0 6.00001 0ZM6.00001 3.33333C7.28768 3.33333 8.33334 4.379 8.33334 5.66667C8.33334 6.95433 7.28768 8 6.00001 8C4.71234 8 3.66668 6.95433 3.66668 5.66667C3.66668 4.379 4.71234 3.33333 6.00001 3.33333Z"
+                                                    fill="white" />
+                                            </svg>{{ $project->location }}
+                                        </a>
+                                    </div>
+                                    <div class="d-flex justify-between align-center  project-details">
+                                        <h3>{{ $project->title }}</h3>
+                                        <p>{{ $project->sub_title }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        {{-- <div class="w-3 w-lg-2 w-sm-1">
                         <div class="project-img">
                             <img src="{{ url(env('ASSETPATHURL') . 'web/images/p2.png') }}" alt="project" title="project"
                                 width="100%" height="250px">
@@ -174,55 +178,54 @@
                                 <p>Industrial Project</p>
                             </div>
                         </div>
+                    </div> --}}
+                    </div>
+                    <div class="d-flex justify-center align-center">
+                        <a href="javascript:void(0)" class="project-btn d-flex align-center">View More<svg width="26"
+                                height="16" viewBox="0 0 26 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25.7071 8.70711C26.0976 8.31658 26.0976 7.68342 25.7071 7.29289L19.3431 0.928932C18.9526 0.538408 18.3195 0.538408 17.9289 0.928932C17.5384 1.31946 17.5384 1.95262 17.9289 2.34315L23.5858 8L17.9289 13.6569C17.5384 14.0474 17.5384 14.6805 17.9289 15.0711C18.3195 15.4616 18.9526 15.4616 19.3431 15.0711L25.7071 8.70711ZM0 8V9H25V8V7H0V8Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
-                <div class="d-flex justify-center align-center">
-                    <a href="javascript:void(0)" class="project-btn d-flex align-center">View More<svg width="26"
-                            height="16" viewBox="0 0 26 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M25.7071 8.70711C26.0976 8.31658 26.0976 7.68342 25.7071 7.29289L19.3431 0.928932C18.9526 0.538408 18.3195 0.538408 17.9289 0.928932C17.5384 1.31946 17.5384 1.95262 17.9289 2.34315L23.5858 8L17.9289 13.6569C17.5384 14.0474 17.5384 14.6805 17.9289 15.0711C18.3195 15.4616 18.9526 15.4616 19.3431 15.0711L25.7071 8.70711ZM0 8V9H25V8V7H0V8Z"
-                                fill="white" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
+            </section>
+        @endif
         <!-- pioneers  -->
-        <section class="pioneers">
-            <div class="container">
-                <div class="pioneers-title text-center">
-                    <h3>Explore The Pioneers</h3>
-                    <h2>Pioneers Who Preferred us</h2>
-                </div>
-                <div class="row">
-                    <div class="w-4 w-xl-3 w-md-2">
+        @if (count($pioneerdata) > 0)
+            <section class="pioneers">
+                <div class="container">
+                    <div class="pioneers-title text-center">
+                        <h3>Explore The Pioneers</h3>
+                        <h2>Pioneers Who Preferred us</h2>
+                    </div>
+                    <div class="row">
+                        @foreach ($pioneerdata as $pioneer)
+                            <div class="w-4 w-xl-3 w-md-2">
+                                <div class="pioneers-img d-flex justify-center align-center">
+                                    <img src="{{ helper::image_path($pioneer->image) }}" alt="pioneers" title="pioneers">
+                                </div>
+                            </div>
+                        @endforeach
+                        {{-- <div class="w-4 w-xl-3 w-md-2">
                         <div class="pioneers-img d-flex justify-center align-center">
-                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/1.png') }}" alt="pioneers"
-                                title="pioneers">
+                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/2.png') }}" alt="pioneers" title="pioneers">
                         </div>
                     </div>
                     <div class="w-4 w-xl-3 w-md-2">
                         <div class="pioneers-img d-flex justify-center align-center">
-                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/2.png') }}" alt="pioneers"
-                                title="pioneers">
+                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/3.png') }}" alt="pioneers" title="pioneers">
                         </div>
                     </div>
                     <div class="w-4 w-xl-3 w-md-2">
                         <div class="pioneers-img d-flex justify-center align-center">
-                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/3.png') }}" alt="pioneers"
-                                title="pioneers">
+                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/4.png') }}" alt="pioneers" title="pioneers">
                         </div>
                     </div>
                     <div class="w-4 w-xl-3 w-md-2">
                         <div class="pioneers-img d-flex justify-center align-center">
-                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/4.png') }}" alt="pioneers"
-                                title="pioneers">
-                        </div>
-                    </div>
-                    <div class="w-4 w-xl-3 w-md-2">
-                        <div class="pioneers-img d-flex justify-center align-center">
-                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/5.png') }}" alt="pioneers"
-                                title="pioneers">
+                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/5.png') }}" alt="pioneers" title="pioneers">
                         </div>
                     </div>
                     <div class="w-4 w-xl-3 w-md-2">
@@ -233,20 +236,17 @@
                     </div>
                     <div class="w-4 w-xl-3 w-md-2">
                         <div class="pioneers-img d-flex justify-center align-center">
-                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/7.png') }}" alt="pioneers"
-                                title="pioneers">
+                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/7.png') }}" alt="pioneers" title="pioneers">
                         </div>
                     </div>
                     <div class="w-4 w-xl-3 w-md-2">
                         <div class="pioneers-img d-flex justify-center align-center">
-                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/8.png') }}" alt="pioneers"
-                                title="pioneers">
+                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/8.png') }}" alt="pioneers" title="pioneers">
                         </div>
                     </div>
                     <div class="w-4 w-xl-3 w-md-2">
                         <div class="pioneers-img d-flex justify-center align-center">
-                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/9.png') }}" alt="pioneers"
-                                title="pioneers">
+                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/9.png') }}" alt="pioneers" title="pioneers">
                         </div>
                     </div>
                     <div class="w-4 w-xl-3 w-md-2">
@@ -266,10 +266,11 @@
                             <img src="{{ url(env('ASSETPATHURL') . 'web/images/12.png') }}" alt="pioneers"
                                 title="pioneers">
                         </div>
+                    </div> --}}
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        @endif
         <!-- values -->
         <section class="values">
             <div class="container">
@@ -289,16 +290,16 @@
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M42.9654 38.1279L50.9828 46.1454C52.2307 47.3932 52.2307 49.4162 50.9828 50.6641C49.735 51.9119 47.712 51.9119 46.4642 50.6641L40.0679 44.2678"
-                                    stroke="#B8882D" stroke-width="1.95312" stroke-miterlimit="10"
-                                    stroke-linecap="round" stroke-linejoin="round" />
+                                    stroke="#B8882D" stroke-width="1.95312" stroke-miterlimit="10" stroke-linecap="round"
+                                    stroke-linejoin="round" />
                                 <path
                                     d="M40.0679 44.2676L45.7721 49.9718C47.0199 51.2196 47.0199 53.2426 45.7721 54.4905C44.5242 55.7383 42.5012 55.7383 41.2534 54.4905L37.144 50.3811"
-                                    stroke="#B8882D" stroke-width="1.95312" stroke-miterlimit="10"
-                                    stroke-linecap="round" stroke-linejoin="round" />
+                                    stroke="#B8882D" stroke-width="1.95312" stroke-miterlimit="10" stroke-linecap="round"
+                                    stroke-linejoin="round" />
                                 <path
                                     d="M37.144 50.3809L39.6497 52.8866C40.8975 54.1344 40.8975 56.1574 39.6497 57.4053C38.4018 58.6531 36.3788 58.6531 35.131 57.4053L33.9599 56.2341M54.5347 20.4209L53.8567 20.7593C52.6489 21.362 51.3307 21.7113 49.983 21.7859C48.6353 21.8604 47.2865 21.6586 46.0197 21.1928C44.2298 20.5348 42.3193 20.2696 40.4179 20.4153C38.5165 20.561 36.6687 21.1142 35 22.0372L29.0489 25.3293C27.104 26.4051 26.5121 28.9244 27.7744 30.7539C28.7476 32.1641 30.5512 32.7381 32.1602 32.1493L39.655 29.4073C40.4483 29.1171 41.3081 29.0596 42.133 29.2418C42.9579 29.424 43.7135 29.8381 44.3108 30.4354L55.5017 41.6263C56.7495 42.8741 56.7495 44.8971 55.5017 46.145C54.2538 47.3928 52.2308 47.3928 50.983 46.145L42.1455 37.3075"
-                                    stroke="#B8882D" stroke-width="1.95312" stroke-miterlimit="10"
-                                    stroke-linecap="round" stroke-linejoin="round" />
+                                    stroke="#B8882D" stroke-width="1.95312" stroke-miterlimit="10" stroke-linecap="round"
+                                    stroke-linejoin="round" />
                                 <path
                                     d="M35 22.0373C33.3313 21.1142 31.4835 20.561 29.5821 20.4153C27.6807 20.2696 25.7702 20.5348 23.9803 21.1929C22.7135 21.6587 21.3648 21.8605 20.017 21.786C18.6693 21.7114 17.3511 21.3621 16.1433 20.7594L15.4913 20.434M55.6641 41.4995L61.4682 38.4106M13.6886 40.9869L8.85446 37.1584M27.1524 44.8513L23.8014 48.2023M27.1524 44.8513C28.4002 43.6035 28.4002 41.5804 27.1524 40.3326C25.9045 39.0848 23.8815 39.0848 22.6337 40.3326L19.2827 43.6836C18.0349 44.9314 18.0349 46.9544 19.2827 48.2023C20.5305 49.4501 22.5535 49.4501 23.8014 48.2023M27.1524 44.8513C28.4002 43.6035 30.4232 43.6035 31.671 44.8513C32.9189 46.0991 32.9189 48.1222 31.671 49.37L28.3201 52.721C27.0722 53.9688 25.0492 53.9688 23.8014 52.721C22.5535 51.4731 22.5535 49.4501 23.8014 48.2023"
                                     stroke="#B8882D" stroke-width="1.95312" stroke-miterlimit="10"
@@ -381,25 +382,26 @@
             </div>
         </section>
         <!-- Events -->
-        <section class="Events">
-            <div class="container">
-                <div class="Events-title">
-                    <h3>Explore The Events</h3>
-                    <h2>our core values</h2>
-                </div>
-                <div class="wrapper">
-                    <!-- Контент -->
+        @if (count($eventdata) > 0)
+            <section class="Events">
+                <div class="container">
+                    <div class="Events-title">
+                        <h3>Explore The Events</h3>
+                        <h2>our core values</h2>
+                    </div>
+                    <div class="wrapper">
+                        <div class="slider">
+                            @foreach ($eventdata as $event)
+                                <div class="slider__item">
+                                    <div class="right-border"></div>
+                                    <img src="{{ helper::image_path($event->image) }}" alt="Events" title="Events"
+                                        title="Events">
+                                    <h2>{{ $event->title }}</h2>
+                                    <h4>{{ $event->sub_title }}</h4>
+                                </div>
+                            @endforeach
 
-                    <div class="slider">
-                        <div class="slider__item">
-                            <div class="right-border"></div>
-                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/Events1.png') }}" alt="Events"
-                                title="Events" title="Events">
-                            <h2>Diamond Valley Event 1</h2>
-                            <h4>Event 1</h4>
-                        </div>
-
-                        <div class="slider__item">
+                            {{-- <div class="slider__item">
                             <div class="right-border"></div>
                             <img src="{{ url(env('ASSETPATHURL') . 'web/images/Events2.png') }}" alt="Events"
                                 title="Events">
@@ -435,35 +437,34 @@
                                 title="Events">
                             <h2>Gm Diamond Group Pres...</h2>
                             <h4>Diamond Cup</h4>
+                        </div> --}}
+
+                            <!-- Repeat same structure for other slides -->
                         </div>
-
-                        <!-- Repeat same structure for other slides -->
                     </div>
-
-
-                    <!-- Repeat same structure for other slides -->
                 </div>
-
-            </div>
-        </section>
+            </section>
+        @endif
         <!-- Blogs -->
-        <section class="Blogs">
-            <div class="container">
-                <div class="blogs-title">
-                    <h3>Explore The Blogs</h3>
-                    <h2>Our Blogs</h2>
-                </div>
-                <div class="row">
-                    <div class="w-3 w-md-2 w-sm-1">
-                        <div class="blogs-content">
-                            <img src="{{ url(env('ASSETPATHURL') . 'web/images/blog-img1.png') }}" alt="blogs-image"
-                                title="blogs-image">
-                            <h4>5 Essential Tips for a Stress-Free Home Renovation</h4>
-                            <p>Renovating your home can be exciting but without proper planning, it can also be
-                                overwhelming. In this post <b>...Read More</b></p>
-                        </div>
+        @if (count($blogdata) > 0)
+            <section class="Blogs">
+                <div class="container">
+                    <div class="blogs-title">
+                        <h3>Explore The Blogs</h3>
+                        <h2>Our Blogs</h2>
                     </div>
-                    <div class="w-3 w-md-2 w-sm-1 blogs-content-2">
+                    <div class="row">
+                        @foreach ($blogdata as $blog)
+                            <div class="w-3 w-md-2 w-sm-1">
+                                <div class="blogs-content">
+                                    <img src="{{ helper::image_path($blog->image) }}" alt="blogs-image"
+                                        title="blogs-image">
+                                    <h4>{{ $blog->title }}</h4>
+                                    <p>{{ $blog->description }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                        {{-- <div class="w-3 w-md-2 w-sm-1 blogs-content-2">
                         <div class="blogs-content">
                             <img src="{{ url(env('ASSETPATHURL') . 'web/images/blogs-image-2.png') }}" alt="blogs-image"
                                 title="blogs-image">
@@ -480,23 +481,24 @@
                             <p>Renovating your home can be exciting but without proper planning, it can also be
                                 overwhelming. In this post <b>...Read More</b></p>
                         </div>
+                    </div> --}}
+
+                    </div>
+                    <div class="button-wrapper d-flex justify-center">
+                        <a href="javascript:void(0)" class="Blogs-btn">
+                            <span>View More</span>
+                            <svg width="26" height="16" viewBox="0 0 26 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25.7071 8.70711C26.0976 8.31658 26.0976 7.68342 25.7071 7.29289L19.3431 0.928932C18.9526 0.538408 18.3195 0.538408 17.9289 0.928932C17.5384 1.31946 17.5384 1.95262 17.9289 2.34315L23.5858 8L17.9289 13.6569C17.5384 14.0474 17.5384 14.6805 17.9289 15.0711C18.3195 15.4616 18.9526 15.4616 19.3431 15.0711L25.7071 8.70711ZM0 8V9H25V8V7H0V8Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
                     </div>
 
                 </div>
-                <div class="button-wrapper d-flex justify-center">
-                    <a href="javascript:void(0)" class="Blogs-btn">
-                        <span>View More</span>
-                        <svg width="26" height="16" viewBox="0 0 26 16" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M25.7071 8.70711C26.0976 8.31658 26.0976 7.68342 25.7071 7.29289L19.3431 0.928932C18.9526 0.538408 18.3195 0.538408 17.9289 0.928932C17.5384 1.31946 17.5384 1.95262 17.9289 2.34315L23.5858 8L17.9289 13.6569C17.5384 14.0474 17.5384 14.6805 17.9289 15.0711C18.3195 15.4616 18.9526 15.4616 19.3431 15.0711L25.7071 8.70711ZM0 8V9H25V8V7H0V8Z"
-                                fill="white" />
-                        </svg>
-                    </a>
-                </div>
-
-            </div>
-        </section>
+            </section>
+        @endif
         <!-- Testimonials -->
         <section class="Testimonials">
             <div class="container">
