@@ -22,7 +22,7 @@
                     <div class="card border-0 text-center handle">
                         <div class="card-body border-0">
                             <img src="{{ helper::image_path($gallery->image) }}"
-                                class="img-fluid gallery-img object rounded" alt="">
+                                class="img-fluid gallery-img object-fit-contain rounded" alt="">
                             <div class="mt-2 d-flex flex-wrap justify-content-center gap-2">
                                 @if ($gallery->is_available == 1)
                                     <button class="btn btn-sm btn-success rounded-4" tooltip="Active"
